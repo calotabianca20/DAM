@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/vv"
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:background="#FDFDFD"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="223dp"
+            android:layout_height="99dp"
+            android:layout_marginLeft="93dp"
+            android:layout_marginTop="130dp"
+            android:layout_marginRight="93dp"
+            android:background="@drawable/instagram_new_logo"
+            android:fontFamily="@font/billabong"
+            android:gravity="right|top"
+            android:shadowColor="#000000"
+            android:textColor="@color/black"
+            android:textSize="60sp" />
+
+        <EditText
+            android:id="@+id/user"
+            style="@android:style/Widget.AutoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/rounded_edittext"
+            android:ems="10"
+            android:hint="Telefon, e-mail sau nume de utilizator"
+            android:inputType="textPersonName"
+            android:textColor="#0B0B0B"
+            android:textColorHint="#5A5959" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="25dp"
+            android:textColorHint="#101010"
+            app:hintAnimationEnabled="false"
+            app:hintEnabled="false"
+            app:passwordToggleEnabled="true">
+
+            <EditText
+                android:id="@+id/userPassword"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
+                android:background="@drawable/rounded_edittext"
+                android:ems="10"
+                android:hint="Parolă"
+                android:inputType="textPassword"
+                android:textColor="#0B0B0B"
+                android:textColorHint="#5A5959" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/LogIn_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="25sp"
+            android:background="@drawable/login_button"
+            android:text="Conectare"
+            android:textAllCaps="false" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:textAlignment="center">
+
+            <View
+                android:id="@+id/del1"
+                android:layout_width="123dp"
+                android:layout_height="0.7dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="33dp"
+                android:layout_weight="0.8"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:id="@+id/orOption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="23dp"
+                android:layout_weight="3"
+                android:text="SAU"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <View
+                android:id="@+id/del2"
+                android:layout_width="123dp"
+                android:layout_height="0.7dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="33dp"
+                android:layout_marginRight="25dp"
+                android:layout_weight="1"
+                android:background="@android:color/darker_gray" />
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/ConnectingWithFb_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:text="Conectare cu Facebook"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            app:icon="@drawable/icon"
+            app:iconPadding="@dimen/cardview_default_radius"
+            app:iconTint="@color/white"
+            app:iconTintMode="multiply"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <View
+            android:id="@+id/divider4"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="?android:attr/listDivider" />
+
+        <LinearLayout
+            android:id="@+id/footer"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="70dp"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="-204dp"
+            tools:layout_editor_absoluteY="640dp">
+
+            <TextView
+                android:id="@+id/someText"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:paddingEnd="5dp"
+                android:text="Nu ai cont?"
+                android:textAlignment="textEnd"
+                tools:ignore="TouchTargetSizeCheck"
+                tools:text="Nu ai cont?" />
+
+            <TextView
+                android:id="@+id/toRegisterPage"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:linksClickable="true"
+                android:text="Înscrie-te."
+                android:textColor="#3F51B5" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

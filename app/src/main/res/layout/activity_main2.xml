@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/logoApp"
+            android:layout_width="223dp"
+            android:layout_height="99dp"
+            android:layout_marginLeft="93dp"
+            android:layout_marginTop="90dp"
+            android:layout_marginRight="93dp"
+            android:background="@drawable/instagram_new_logo" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/connectingWithFb_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="25dp"
+            android:text="Conectare cu Facebook"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            app:icon="@drawable/icon"
+            app:iconTintMode="multiply" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="125dp"
+                android:layout_height="1.5dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="20dp"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="66dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="24dp"
+                android:text="SAU"
+                android:textAlignment="center" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="111dp"
+                android:layout_height="3dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="34dp"
+                android:background="?android:attr/listDivider" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/userDataReg"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/rounded_edittext"
+                android:ems="10"
+                android:hint="Număr telefon mobil sau adresă de e-mail"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/fullNameReg"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/rounded_edittext"
+                android:ems="10"
+                android:hint="Nume complet"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/usernameReg"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/rounded_edittext"
+                android:ems="10"
+                android:hint="Nume de utilizator"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/userPasswordReg"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/rounded_edittext"
+                android:ems="10"
+                android:hint="Parolă"
+                android:inputType="textPersonName"
+                android:password="true" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/forwardButton"
+            android:layout_width="163dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="120dp"
+            android:layout_marginTop="4dp"
+            android:text="Înainte"
+            android:textAllCaps="false"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <LinearLayout
+            android:id="@+id/LogIn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingEnd="10dp"
+                android:text="Ai un cont?"
+                android:textAlignment="textEnd" />
+
+            <TextView
+                android:id="@+id/LogIn_Reg"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:linksClickable="true"
+                android:text="Conectează-te."
+                android:textColor="#3F51B5" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
