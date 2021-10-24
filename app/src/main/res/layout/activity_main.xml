@@ -18,11 +18,11 @@
         tools:layout_editor_absoluteY="1dp">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/logo"
             android:layout_width="223dp"
             android:layout_height="99dp"
             android:layout_marginLeft="93dp"
-            android:layout_marginTop="130dp"
+            android:layout_marginTop="100dp"
             android:layout_marginRight="93dp"
             android:background="@drawable/instagram_new_logo"
             android:fontFamily="@font/billabong"
@@ -32,7 +32,7 @@
             android:textSize="60sp" />
 
         <EditText
-            android:id="@+id/user"
+            android:id="@+id/userData"
             style="@android:style/Widget.AutoCompleteTextView"
             android:layout_width="match_parent"
             android:layout_height="52dp"
@@ -43,6 +43,7 @@
             android:ems="10"
             android:hint="Telefon, e-mail sau nume de utilizator"
             android:inputType="textPersonName"
+            android:paddingStart="12dp"
             android:textColor="#0B0B0B"
             android:textColorHint="#5A5959" />
 
@@ -79,9 +80,9 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="25sp"
-            android:background="@drawable/login_button"
             android:text="Conectare"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            app:backgroundTint="@color/blue3" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -128,27 +129,33 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
+            android:backgroundTint="@color/light_gray"
+            android:paddingStart="50dp"
+            android:shadowColor="#FDFDFD"
             android:text="Conectare cu Facebook"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
             android:textAllCaps="false"
+            android:textColor="@color/blue3"
             app:icon="@drawable/icon"
-            app:iconPadding="@dimen/cardview_default_radius"
+            app:iconPadding="8dp"
             app:iconTint="@color/white"
             app:iconTintMode="multiply"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"
+            style="?android:attr/borderlessButtonStyle" />
+
 
         <View
             android:id="@+id/divider4"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="60dp"
             android:background="?android:attr/listDivider" />
 
         <LinearLayout
             android:id="@+id/footer"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal"
             tools:layout_editor_absoluteX="-204dp"
             tools:layout_editor_absoluteY="640dp">
