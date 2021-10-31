@@ -9,10 +9,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.Console;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,7 +33,21 @@ public class MainActivity extends AppCompatActivity {
         logIn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Conectat cu succes.", Toast.LENGTH_SHORT).show();
+
+                String usTxt = userData.getText().toString();
+                String psTxt = password.getText().toString();
+                if(!usTxt.isEmpty() && !psTxt.isEmpty()){
+                    Intent intent = new Intent(MainActivity.this, FluxInstagram.class);
+                    startActivity(intent);
+                }
+                else {
+                    if(usTxt.isEmpty()){
+                        userData.setError("Introduceti numele de utilizator");
+                    }
+                    if(psTxt.isEmpty()){
+                        password.setError("Introduceti parola");
+                    }
+                }
             }
         });
 
@@ -59,4 +75,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+
 }
