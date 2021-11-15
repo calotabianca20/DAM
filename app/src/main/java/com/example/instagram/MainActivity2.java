@@ -36,7 +36,6 @@ public class MainActivity2 extends AppCompatActivity {
             public void onClick(View v) {
                 Intent registerPage=new Intent(MainActivity2.this,MainActivity.class);
                 startActivity(registerPage);
-
             }
         });
         forwardButton.setOnClickListener(new View.OnClickListener() {
@@ -60,8 +59,6 @@ public class MainActivity2 extends AppCompatActivity {
 
             }
         });
-
-
     }
 
     private boolean isValid(){

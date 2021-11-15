@@ -1,16 +1,48 @@
 package com.example.instagram;
 
-import android.view.View;
-import android.widget.ImageView;
+
 
 public class Postare {
-    private ImageView image;
+    private String url;
+    private String user;
+    private String description;
 
-    public Postare() {
+    public Postare(String url, String user, String description) {
+        this.url = url;
+        this.user = user;
+        this.description = description;
     }
 
-    public Postare(View view
-    ) {
-        this.image = image;
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Postare{" +
+                "url='" + url + '\'' +
+                ", user='" + user + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
