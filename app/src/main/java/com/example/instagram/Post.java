@@ -1,13 +1,25 @@
 package com.example.instagram;
 
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
 
-public class Postare {
+import java.io.Serializable;
+
+@Entity(tableName = "posts")
+public class Post implements Serializable {
+    @ColumnInfo(name = "photo")
+    @PrimaryKey @NonNull
     private String url;
+    @ColumnInfo(name="user")
     private String user;
+    @ColumnInfo(name = "photo_description")
     private String description;
 
-    public Postare(String url, String user, String description) {
+    public Post(String url, String user, String description) {
         this.url = url;
         this.user = user;
         this.description = description;

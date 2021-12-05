@@ -169,10 +169,10 @@
                 android:layout_weight="1"
                 android:clickable="true"
                 android:paddingEnd="5dp"
-                android:text="Nu ai cont?"
+                android:text="Nu ai user?"
                 android:textAlignment="textEnd"
                 tools:ignore="TouchTargetSizeCheck"
-                tools:text="Nu ai cont?" />
+                tools:text="Nu ai user?" />
 
             <TextView
                 android:id="@+id/toRegisterPage"

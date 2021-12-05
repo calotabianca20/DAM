@@ -9,11 +9,15 @@
         <entry key="..\:/Users/Bianca/AndroidStudioProjects/Instagram/app/src/main/res/drawable/login_button.xml" value="0.2755208333333333" />
         <entry key="..\:/Users/Bianca/AndroidStudioProjects/Instagram/app/src/main/res/drawable/rounded_edittext.xml" value="0.12604166666666666" />
         <entry key="..\:/Users/Bianca/AndroidStudioProjects/Instagram/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/Bianca/AndroidStudioProjects/Instagram/app/src/main/res/layout/activity_main2.xml" value="0.264" />
+        <entry key="..\:/Users/Bianca/AndroidStudioProjects/Instagram/app/src/main/res/layout/activity_main2.xml" value="0.2" />
         <entry key="..\:/Users/Bianca/AndroidStudioProjects/Instagram/app/src/main/res/layout/activity_main3.xml" value="0.23958333333333334" />
-        <entry key="..\:/Users/Bianca/AndroidStudioProjects/Instagram/app/src/main/res/layout/flux_instagram.xml" value="0.176" />
+        <entry key="..\:/Users/Bianca/AndroidStudioProjects/Instagram/app/src/main/res/layout/add_photo.xml" value="0.2" />
+        <entry key="..\:/Users/Bianca/AndroidStudioProjects/Instagram/app/src/main/res/layout/flux_instagram.xml" value="0.2" />
+        <entry key="..\:/Users/Bianca/AndroidStudioProjects/Instagram/app/src/main/res/layout/fragment_.xml" value="0.18541666666666667" />
         <entry key="..\:/Users/Bianca/AndroidStudioProjects/Instagram/app/src/main/res/layout/fragment_options.xml" value="0.2" />
-        <entry key="..\:/Users/Bianca/AndroidStudioProjects/Instagram/app/src/main/res/layout/item.xml" value="0.35082604470359574" />
+        <entry key="..\:/Users/Bianca/AndroidStudioProjects/Instagram/app/src/main/res/layout/fragment_popup.xml" value="0.264" />
+        <entry key="..\:/Users/Bianca/AndroidStudioProjects/Instagram/app/src/main/res/layout/item.xml" value="0.264" />
+        <entry key="..\:/Users/Bianca/AndroidStudioProjects/Instagram/app/src/main/res/layout/popup_window.xml" value="0.1598731884057971" />
         <entry key="..\:/Users/Bianca/AndroidStudioProjects/Instagram/app/src/main/res/menu/menu.xml" value="0.4" />
       </map>
     </option>

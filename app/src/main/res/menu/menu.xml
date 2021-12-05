@@ -2,9 +2,6 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="De ce sa vezi aceasta postare"
-        android:id="@+id/dcs"/>
-    <item android:title="Ascunde" />
-    <item android:title="Despre acest cont" />
-    <item android:title="Nu mai urmari" />
+    <item android:title="Editeaza" />
+    <item android:title="Sterger" />
 </menu>

@@ -22,5 +22,7 @@
             android:name=".MainActivity2"/>
         <activity
             android:name=".FluxInstagram"/>
+        <activity
+            android:name=".AddPhoto"/>
     </application>
 </manifest>

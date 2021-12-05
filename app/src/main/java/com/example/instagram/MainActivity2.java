@@ -9,11 +9,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.*;
-import java.util.stream.Collectors;
 public class MainActivity2 extends AppCompatActivity {
     private EditText et_userName;
     private EditText et_fullName;
@@ -24,7 +19,7 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        Toast.makeText(MainActivity2.this, "Inscriere!", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(MainActivity2.this, "Inscriere!", Toast.LENGTH_SHORT).show();
         TextView login = (findViewById(R.id.logIn_Reg));
         et_userData = (findViewById(R.id.userDataReg));
         et_password = (findViewById(R.id.userPasswordReg));
@@ -42,14 +37,14 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(isValid()){
-                   Cont cont = new Cont();
-                   cont.setUserData(et_userData.getText().toString());
-                   cont.setUserName(et_userName.getText().toString());
-                   cont.setFullName(et_fullName.getText().toString());
-                   cont.setPassword(et_password.getText().toString());
-                   Toast.makeText(MainActivity2.this, cont.toString(), Toast.LENGTH_SHORT).show();
+                   User user = new User();
+                   user.setUserData(et_userData.getText().toString());
+                   user.setUserName(et_userName.getText().toString());
+                   user.setFullName(et_fullName.getText().toString());
+                   user.setPassword(et_password.getText().toString());
+//                   Toast.makeText(MainActivity2.this, user.toString(), Toast.LENGTH_SHORT).show();
                    Bundle bundle = new Bundle();
-                   bundle.putSerializable("cont", cont);
+                   bundle.putSerializable("cont", user);
                    Intent intent = new Intent();
                    intent.putExtra("raspuns",bundle);
                    setResult(RESULT_OK,intent);

@@ -1,7 +1,5 @@
 package com.example.instagram;
 
-import android.widget.Toast;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,7 +29,7 @@ public class JSONReader {
             while ((line= reader.readLine())!=null){
                 result.append(line);
             }
-            List<Postare> postari = parsare(result.toString());
+            List<Post> postari = parsare(result.toString());
             response.onSuccess(postari);
             reader.close();
             inputStreamReader.close();
@@ -45,8 +43,8 @@ public class JSONReader {
         }
     }
 
-    public List<Postare> parsare(String jsonString){
-        List<Postare> postari = new ArrayList<>();
+    public List<Post> parsare(String jsonString){
+        List<Post> postari = new ArrayList<>();
         try {
             JSONObject jsonObject = new JSONObject(jsonString);
             JSONArray jsonArray = jsonObject.getJSONArray("postari");
@@ -56,7 +54,7 @@ public class JSONReader {
                 String user = obj.getString("user");
                 String description = obj.getString("description");
 
-                Postare postare = new Postare(url,user,description);
+                Post postare = new Post(url,user,description);
                 postari.add(postare);
             }
         } catch (JSONException e) {
