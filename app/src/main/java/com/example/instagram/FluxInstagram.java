@@ -1,6 +1,8 @@
 package com.example.instagram;
 
+import android.content.AsyncQueryHandler;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.widget.Toolbar;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.loader.content.AsyncTaskLoader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,10 +35,17 @@ public class FluxInstagram extends AppCompatActivity {
         postari.add(new Post("https://nationaltoday.com/wp-content/uploads/2019/12/christmas-1.jpg","gabiionescu","Wishing you a Christmas that's merry and bright!"));
         postari.add(new Post("https://www.history.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTY4OTA4MzI0ODc4NjkwMDAw/christmas-tree-gettyimages-1072744106.jpg","bogdanionut16","Happy Holidays!"));
         feedAdapter = new FeedAdapter(postari,this);
-        List<Post> posts =  dao.allPosts();
-        if(posts!=null){
-            feedAdapter.update(posts);
-        }
+
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                List<Post> posts =  dao.allPosts();
+                if(posts!=null){
+                    feedAdapter.update(posts);
+                }
+            }
+        });
+
         listView = findViewById(R.id.listView);
         listView.setAdapter(feedAdapter);
 
@@ -99,12 +109,17 @@ public class FluxInstagram extends AppCompatActivity {
                     addedPhoto.add(post);
                     feedAdapter.update(addedPhoto);
 
-                    dao.insertPost(post);
+                    AsyncTask.execute(new Runnable() {
+                        @Override
+                        public void run() {
+                            dao.insertPost(post);
+                        }
+                    });
 
-                    List<User> users  =  dao.users();
-                    List<Post> posts = dao.allPosts();
-                    Log.v("USERS", users.toString());
-                    Log.v("POSTS", posts.toString());
+//                    List<User> users  =  dao.users();
+//                    List<Post> posts = dao.allPosts();
+//                    Log.v("USERS", users.toString());
+//                    Log.v("POSTS", posts.toString());
                 }
             }
         }

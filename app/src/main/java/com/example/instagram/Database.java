@@ -14,7 +14,7 @@ public abstract class Database extends RoomDatabase {
     public static Database getDatabase(Context context){
         synchronized (Database.class) {
             if (database == null) {
-                database = Room.databaseBuilder(context, Database.class, "users_db").allowMainThreadQueries().build();
+                database = Room.databaseBuilder(context, Database.class, "users_db").build();
             }
             return database;
         }

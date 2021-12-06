@@ -42,30 +42,64 @@ public class MainActivity extends AppCompatActivity {
 
                 String usTxt = userData.getText().toString();
                 String psTxt = password.getText().toString();
-                User user = dao.checkUser(usTxt);
-                if(user!=null) {
-                    if (!usTxt.isEmpty() && !psTxt.isEmpty()) {
-                        if (user.getPassword().compareTo(psTxt)==0) {
-                            Intent intent = new Intent(MainActivity.this, FluxInstagram.class);
-                            intent.putExtra("username", usTxt);
-                            startActivity(intent);
-                        }
-                        else {
-                            Toast.makeText(MainActivity.this, "Parola nu este corecta.", Toast.LENGTH_SHORT).show();
+
+                AsyncTask.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (!usTxt.isEmpty() && !psTxt.isEmpty()) {
+                                User user = dao.checkUser(usTxt);
+                                if(user!=null){
+                                    if (user.getPassword().compareTo(psTxt)==0) {
+                                        Intent intent = new Intent(MainActivity.this, FluxInstagram.class);
+                                        intent.putExtra("username", usTxt);
+                                        startActivity(intent);
+                                    }
+                                    else {
+                                        MainActivity.this.runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                password.setError("Parola nu este corecta.");
+                                            }
+                                        });
+
+
+                                    }
+                                }
+                                else {
+
+                                    MainActivity.this.runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            userData.setError("Utilizatorul nu exista");
+                                        }
+                                    });
+                                }
+                        } else {
+                                if (usTxt.isEmpty()) {
+                                    MainActivity.this.runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            userData.setError("Introduceti numele de utilizator");
+                                        }
+                                    });
+
+                                }
+                                if (psTxt.isEmpty()) {
+                                    MainActivity.this.runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            password.setError("Introduceti parola");
+                                        }
+                                    });
+
+                                }
+                            }
                         }
 
-                    } else {
-                        if (usTxt.isEmpty()) {
-                            userData.setError("Introduceti numele de utilizator");
-                        }
-                        if (psTxt.isEmpty()) {
-                            password.setError("Introduceti parola");
-                        }
-                    }
-                }
-                else {
-                    Toast.makeText(MainActivity.this, "Utilizatorul nu exista", Toast.LENGTH_SHORT).show();
-                }
+                });
+
+
+
             }
         });
 
@@ -87,7 +121,13 @@ public class MainActivity extends AppCompatActivity {
                 if(data!=null){
                     Bundle bundle = data.getBundleExtra("raspuns");
                     User user = (User)  bundle.getSerializable("cont");
-                    dao.insertUser(user);
+                    this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            dao.insertUser(user);
+                        }
+                    });
+
                     userData.setText(user.getUserData());
                     password.setText(user.getPassword());
                 }
