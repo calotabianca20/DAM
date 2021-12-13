@@ -16,6 +16,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.loader.content.AsyncTaskLoader;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,11 +30,18 @@ public class FluxInstagram extends AppCompatActivity {
     private ListView listView;
     private final int fluxRequest = 200;
     public DAO dao;
-    FeedAdapter feedAdapter;
+    private FeedAdapter feedAdapter;
+    private FirebaseDatabase database;
+    private DatabaseReference refToPostTb;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.flux_instagram);
+
+        database = FirebaseDatabase.getInstance();
+        refToPostTb = database.getReference("Posts");
+
+
         dao = Database.getDatabase(FluxInstagram.this).dao();
         postari = new ArrayList<>();
         postari.add(new Post("https://www.bahrain-confidential.com/wp-content/uploads/2020/12/image.jpg","dobrinlaura07","Merry Christmas!"));
@@ -36,7 +49,7 @@ public class FluxInstagram extends AppCompatActivity {
         postari.add(new Post("https://www.history.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTY4OTA4MzI0ODc4NjkwMDAw/christmas-tree-gettyimages-1072744106.jpg","bogdanionut16","Happy Holidays!"));
         feedAdapter = new FeedAdapter(postari,this);
 
-        AsyncTask.execute(new Runnable() {
+        new Thread(new Runnable() {
             @Override
             public void run() {
                 List<Post> posts =  dao.allPosts();
@@ -44,7 +57,7 @@ public class FluxInstagram extends AppCompatActivity {
                     feedAdapter.update(posts);
                 }
             }
-        });
+        }).start();
 
         listView = findViewById(R.id.listView);
         listView.setAdapter(feedAdapter);
@@ -94,6 +107,14 @@ public class FluxInstagram extends AppCompatActivity {
         });
 
         thread.start();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Log.v("posts", dao.allPosts().toString());
+            }
+        }).start();
+
     }
 
     @Override
@@ -104,6 +125,10 @@ public class FluxInstagram extends AppCompatActivity {
                 if(data!=null){
                     Bundle bundle = data.getBundleExtra("raspuns");
                     Post post = (Post)  bundle.getSerializable("post");
+
+
+                    refToPostTb.push().setValue(post);
+
                     Toast.makeText(FluxInstagram.this, post.toString(), Toast.LENGTH_SHORT).show();
                     List<Post> addedPhoto = new ArrayList<>();
                     addedPhoto.add(post);
@@ -115,13 +140,9 @@ public class FluxInstagram extends AppCompatActivity {
                             dao.insertPost(post);
                         }
                     });
-
-//                    List<User> users  =  dao.users();
-//                    List<Post> posts = dao.allPosts();
-//                    Log.v("USERS", users.toString());
-//                    Log.v("POSTS", posts.toString());
                 }
             }
         }
     }
+
 }
